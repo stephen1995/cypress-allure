@@ -1,0 +1,21 @@
+{
+  "name": "testing-allure",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "metadata": "npx cypress run --env allure=true",
+    "report": "allure generate allure-results --clean -o allure-report",
+    "openReport": "allure open",
+    "testing": "npm run metadata && npm run report && npm run openReport"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^11.2.0"
+  },
+  "devDependencies": {
+    "@shelex/cypress-allure-plugin": "^2.40.2",
+    "allure-commandline": "^2.29.0"
+  }
+}
