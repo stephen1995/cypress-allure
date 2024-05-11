@@ -10,3 +10,7 @@ phases:
   build:
     commands:
       - npm run testing
+  post_build:
+    commands:
+      - aws s3 sync allure-report s3://s3-test-report/
+      - aws s3 cp --recursive --acl public-read s3://s3-test-report/ s3://s3-test-report/ --metadata-directive REPLACE
