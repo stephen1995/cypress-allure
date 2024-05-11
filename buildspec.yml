@@ -6,6 +6,7 @@ phases:
   pre_build:
     commands:
       - npm install
+      - dnf install -y xorg-x11-server-Xvfb gtk3-devel nss alsa-lib
   build:
     commands:
       - npm run testing
