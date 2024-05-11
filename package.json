@@ -7,7 +7,7 @@
     "metadata": "npx cypress run --env allure=true",
     "report": "allure generate allure-results --clean -o allure-report",
     "openReport": "allure open",
-    "testing": "npm run metadata && npm run report && npm run openReport"
+    "testing": "npm run metadata && npm run report"
   },
   "author": "",
   "license": "ISC",
