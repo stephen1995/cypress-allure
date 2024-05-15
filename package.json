@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "removeReport": "rimraf ./allure-results",
     "metadata": "npx cypress run --env allure=true",
     "report": "allure generate allure-results --clean -o allure-report",
     "openReport": "allure open",
-    "testing": "npm run metadata && npm run report"
+    "testing": "npm run removeReport && npm run metadata && npm run report"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +17,7 @@
   },
   "devDependencies": {
     "@shelex/cypress-allure-plugin": "^2.40.2",
-    "allure-commandline": "^2.29.0"
+    "allure-commandline": "^2.29.0",
+    "rimraf": "^5.0.7"
   }
 }
