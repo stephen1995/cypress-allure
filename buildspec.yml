@@ -13,4 +13,5 @@ phases:
   post_build:
     commands:
       - aws s3 sync allure-report s3://s3-test-report/
-      - aws s3 cp --recursive --acl public-read s3://s3-test-report/ s3://s3-test-report/
+      - aws s3 cp --recursive --acl public-read s3://s3-test-report/ s3://s3-test-report/ --metadata-directive REPLACE
+      - echo "The HTML report can be found here <http://s3-test-report.s3-website.us-east-2.amazonaws.com/> "

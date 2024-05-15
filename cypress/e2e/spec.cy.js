@@ -4,6 +4,7 @@ describe('template spec', () => {
   })
 
   it('testing second scenario',()=>{
-    cy.visit('google.com')
+    cy.visit('www.google.com')
+    cy.get('#testingRatita')
   })
 })

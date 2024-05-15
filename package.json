@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "removeReport": "rimraf ./allure-results",
+    "clean": "rimraf ./allure-report && rimraf ./allure-results",
     "metadata": "npx cypress run --env allure=true",
     "report": "allure generate allure-results --clean -o allure-report",
     "openReport": "allure open",
-    "testing": "npm run removeReport && npm run metadata && npm run report"
+    "testing": "npm run clean && npm run metadata && npm run report || npm run report"
   },
   "author": "",
   "license": "ISC",
