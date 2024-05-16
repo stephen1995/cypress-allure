@@ -1,10 +1,5 @@
-describe('template spec', () => {
-  it('passes', () => {
-    cy.visit('https://example.cypress.io')
-  })
-
-  it('testing second scenario',()=>{
-    cy.visit('www.google.com')
-    cy.get('#testingRatita')
-  })
-})
+describe("Login", { tags: "@smoke" }, () => {
+  it("Should login in to the application", () => {
+    cy.loginWeb();
+  });
+});
