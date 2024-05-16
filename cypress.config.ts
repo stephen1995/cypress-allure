@@ -1,11 +1,18 @@
-const { defineConfig } = require("cypress");
-const allureWriter = require('@shelex/cypress-allure-plugin/writer');
+import { defineConfig } from "cypress";
+import allureWriter from "@shelex/cypress-allure-plugin/writer";
 
-module.exports = defineConfig({
+export default defineConfig({
   e2e: {
-      setupNodeEvents(on, config) {
-          allureWriter(on, config);
-          return config;
-      }
-  }
+    setupNodeEvents(on, config) {
+      //ALLURE CONFIG
+      allureWriter(on, config);
+      //SETUP ENV
+      const version = config.env.version || "local";
+      config.env = require(`./cypress/config/${version}.json`);
+      config.baseUrl = config.env.baseUrl;
+      return config;
+    },
+    env: { allureReuseAfterSpec: true },
+    defaultCommandTimeout: 6000,
+  },
 });
